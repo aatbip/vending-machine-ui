@@ -1,7 +1,10 @@
-import { Box, Stack, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 import MachineItems from "./MachineItems";
 import UserInteractionElements from "./UserInteractionElements";
 import DisplayBox from "../components/DisplayBox";
+import { useContext } from "react";
+import { CoreContext } from "../context";
+import { ICoreContext } from "../types/interfaces";
 
 const MachineContainer = styled(Stack)
   ({
@@ -14,10 +17,10 @@ const MachineContainer = styled(Stack)
 
 const AmountDisplayContainer = styled(Stack)({
   flexDirection: "row",
-  justifyContent: "space-around",
   borderRadius: "12px",
   border: "3px solid #bfd9ff",
   background: "#fff",
+  justifyContent: "space-around"
 })
 
 
@@ -29,13 +32,16 @@ const CollectItemBoxContainer = styled(Stack)({
 })
 
 const VendingMachine = () => {
+
+  const { state } = useContext(CoreContext) as ICoreContext
+
   return (
     <>
       <MachineContainer>
         <Stack direction="column" flexBasis="70%" p="1.5em">
           <AmountDisplayContainer>
-            <h1>cash</h1>
-            <h1>coin</h1>
+            <Typography variant="h4" fontWeight="600">Cash : <span>{state.appState?.cash_count}</span></Typography>
+            <Typography variant="h4" fontWeight="600">Coin : <span>{state.appState?.coins_count}</span></Typography>
           </AmountDisplayContainer>
 
           <MachineItems />
@@ -56,7 +62,8 @@ const VendingMachine = () => {
         <Stack direction="column" flexBasis="30%" p="1.5em" width="100%">
 
           <DisplayBox
-            message="Please add items and input cash/coin to purchase!"
+            message={state.errorMsg ? state.errorMsg : "Please add items and input cash/coin to purchase!"}
+            isErrorMsg={state.errorMsg !== ""}
           />
 
           <UserInteractionElements />
