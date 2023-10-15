@@ -1,9 +1,9 @@
+import VendingMachine from "./vendingMachine"
 
 function App() {
-
   return (
     <>
-      hey
+      <VendingMachine />
     </>
   )
 }
