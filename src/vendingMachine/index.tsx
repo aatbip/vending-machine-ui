@@ -1,16 +1,13 @@
-import { Box, Stack, Typography, styled } from "@mui/material";
+import { Box, Stack, styled } from "@mui/material";
 import MachineItems from "./MachineItems";
-import CounterInput from "../components/CounterInput";
-import BasicInput from "../components/BasicInput";
-import BasicButton from "../components/BasicButton";
+import UserInteractionElements from "./UserInteractionElements";
+import DisplayBox from "../components/DisplayBox";
 
 const MachineContainer = styled(Stack)
   ({
     background: "#9D1717",
     borderRadius: "16px 16px 0px 0px",
     margin: "3rem auto",
-    // maxWidth: "800px",
-    // minWidth: "800px",
     width: "800px",
     flexDirection: "row",
   })
@@ -57,39 +54,13 @@ const VendingMachine = () => {
         </Stack>
 
         <Stack direction="column" flexBasis="30%" p="1.5em" width="100%">
-          <Stack direction="column" rowGap="10px">
-            <CounterInput counterName="COKE" getCount={(count) => {
-              console.log(count)
-            }} />
-            <CounterInput counterName="PEPSI" getCount={(count) => {
-              console.log(count)
-            }} />
-            <CounterInput counterName="DEW" getCount={(count) => {
-              console.log(count)
-            }} />
-          </Stack>
 
-          <Stack direction="column" rowGap="10px" m="10px 0px">
-            <Box>
-              <Typography variant="caption">Input Cash</Typography>
-              <BasicInput label="CASH" getInput={(cash) => {
-                console.log(cash)
-              }} />
-            </Box>
-            <Box>
-              <Typography variant="caption">Input Coin</Typography>
-              <BasicInput label="COIN" getInput={(coin) => {
-                console.log(coin)
-              }} />
-            </Box>
-          </Stack>
+          <DisplayBox
+            message="Please add items and input cash/coin to purchase!"
+          />
 
-          <BasicButton label="PURCHASE" handleButtonClick={() => { }} />
+          <UserInteractionElements />
 
-          <Stack direction="column" rowGap="10px" mt="8em">
-            <Typography variant="body2" textAlign="center">Want to Refund?</Typography>
-            <BasicButton label="REFUND ME" handleButtonClick={() => { }} />
-          </Stack>
         </Stack>
 
       </MachineContainer>

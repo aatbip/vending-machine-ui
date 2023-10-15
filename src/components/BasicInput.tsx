@@ -15,6 +15,7 @@ const BasicInput: FC<IBasicInput> = ({ label, getInput }) => {
       type="number"
       sx={{
         "& .MuiOutlinedInput-root": {
+          color: "#fff",
           "&.Mui-focused fieldset": {
             borderColor: "#fff"
           }
@@ -22,6 +23,10 @@ const BasicInput: FC<IBasicInput> = ({ label, getInput }) => {
         "& label.Mui-focused": {
           color: "#fff"
         },
+        backgroundColor: "#731010",
+      }}
+      InputLabelProps={{
+        style: { color: '#fff', opacity: "0.6" },
       }}
       onChange={(e) => getInput(e.target.value ? parseInt(e.target.value) : 0)}
     />
