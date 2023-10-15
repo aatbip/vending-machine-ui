@@ -3,6 +3,7 @@ import coke from "../assets/coke.svg";
 import pepsi from "../assets/pepsi.svg";
 import dew from "../assets/dew.svg";
 import slab from "../assets/slab.png";
+import { MAX_CAPACITY } from "../constants";
 
 const ItemContainer = styled(Stack)({
   backgroundImage: "url('bg.png')",
@@ -32,7 +33,7 @@ const MachineItems = () => {
 
       <ItemsStack>
         {
-          new Array(10).fill(1).map(el => {
+          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={coke} key={el} width="35px" />
             )
@@ -42,7 +43,7 @@ const MachineItems = () => {
 
       <ItemsStack>
         {
-          new Array(10).fill(1).map(el => {
+          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={pepsi} key={el} width="35px" />
             )
@@ -52,7 +53,7 @@ const MachineItems = () => {
 
       <ItemsStack>
         {
-          new Array(10).fill(1).map(el => {
+          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={dew} key={el} width="35px" />
             )
