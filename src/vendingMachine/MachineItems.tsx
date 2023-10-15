@@ -19,6 +19,9 @@ const ItemsStack = styled(Stack)({
   columnGap: "10px"
 })
 
+/**
+ *  Slab is the base where items are placed. 
+ */
 const SlabContainer = styled('img')({
   position: "absolute"
 })
