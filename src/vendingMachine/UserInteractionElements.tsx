@@ -8,13 +8,10 @@ const UserInteractionElements = () => {
     <>
       <Stack direction="column" rowGap="10px">
         <CounterInput counterName="COKE" getCount={(count) => {
-          console.log(count)
         }} />
         <CounterInput counterName="PEPSI" getCount={(count) => {
-          console.log(count)
         }} />
         <CounterInput counterName="DEW" getCount={(count) => {
-          console.log(count)
         }} />
       </Stack>
 

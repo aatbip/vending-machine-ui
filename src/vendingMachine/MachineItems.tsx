@@ -24,7 +24,8 @@ const ItemsStack = styled(Stack)({
  *  Slab is the base where items are placed. 
  */
 const SlabContainer = styled('img')({
-  position: "absolute"
+  position: "absolute",
+  width: "28rem"
 })
 
 const MachineItems = () => {
@@ -63,15 +64,12 @@ const MachineItems = () => {
 
       <SlabContainer src={slab} sx={{
         top: "5.2rem",
-        width: "28rem"
       }} />
       <SlabContainer src={slab} sx={{
         bottom: "9.8rem",
-        width: "28rem"
       }} />
       <SlabContainer src={slab} sx={{
         bottom: 0,
-        width: "28rem"
       }} />
 
     </ItemContainer>
