@@ -1,4 +1,4 @@
-import { Box, Stack, styled } from "@mui/material";
+import { Box, Stack, Typography, styled } from "@mui/material";
 import MachineItems from "./MachineItems";
 import CounterInput from "../components/CounterInput";
 import BasicInput from "../components/BasicInput";
@@ -8,11 +8,11 @@ const MachineContainer = styled(Stack)
   ({
     background: "#9D1717",
     borderRadius: "16px 16px 0px 0px",
-    width: "70%",
     margin: "3rem auto",
-    maxWidth: "900px",
-    minWidth: "600px",
-    flexDirection: "row"
+    // maxWidth: "800px",
+    // minWidth: "800px",
+    width: "800px",
+    flexDirection: "row",
   })
 
 const AmountDisplayContainer = styled(Stack)({
@@ -56,16 +56,40 @@ const VendingMachine = () => {
           </CollectItemBoxContainer>
         </Stack>
 
-        <Stack direction="column" flexBasis="30%">
-          <CounterInput counterName="COKE" getCount={(count) => {
-            console.log(count)
-          }} />
+        <Stack direction="column" flexBasis="30%" p="1.5em" width="100%">
+          <Stack direction="column" rowGap="10px">
+            <CounterInput counterName="COKE" getCount={(count) => {
+              console.log(count)
+            }} />
+            <CounterInput counterName="PEPSI" getCount={(count) => {
+              console.log(count)
+            }} />
+            <CounterInput counterName="DEW" getCount={(count) => {
+              console.log(count)
+            }} />
+          </Stack>
 
-          <BasicInput label="CASH" getInput={(cash) => {
-            console.log(cash)
-          }} />
+          <Stack direction="column" rowGap="10px" m="10px 0px">
+            <Box>
+              <Typography variant="caption">Input Cash</Typography>
+              <BasicInput label="CASH" getInput={(cash) => {
+                console.log(cash)
+              }} />
+            </Box>
+            <Box>
+              <Typography variant="caption">Input Coin</Typography>
+              <BasicInput label="COIN" getInput={(coin) => {
+                console.log(coin)
+              }} />
+            </Box>
+          </Stack>
 
           <BasicButton label="PURCHASE" handleButtonClick={() => { }} />
+
+          <Stack direction="column" rowGap="10px" mt="8em">
+            <Typography variant="body2" textAlign="center">Want to Refund?</Typography>
+            <BasicButton label="REFUND ME" handleButtonClick={() => { }} />
+          </Stack>
         </Stack>
 
       </MachineContainer>
