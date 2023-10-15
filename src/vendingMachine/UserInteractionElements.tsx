@@ -30,7 +30,6 @@ const UserInteractionElements = () => {
       }
     })
   }
-  console.log("cleared??", userInputs)
 
   return (
     <>
@@ -83,11 +82,14 @@ const UserInteractionElements = () => {
       <When condition={state.state.refund === 0 && state.state.isRefundOn}>
         <Stack m="1.5rem 0rem">
           <BasicButton label={"REFUND NOW"}
-            handleButtonClick={() => state.refund({
-              coke_count: userInputs.coke_count,
-              pepsi_count: userInputs.pepsi_count,
-              dew_count: userInputs.dew_count
-            })} />
+            handleButtonClick={() => {
+              state.refund({
+                coke_count: userInputs.coke_count,
+                pepsi_count: userInputs.pepsi_count,
+                dew_count: userInputs.dew_count
+              })
+              clearUserInputs()
+            }} />
         </Stack>
       </When>
 

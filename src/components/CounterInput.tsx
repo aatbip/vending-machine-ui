@@ -34,8 +34,6 @@ const CounterInput: FC<ICounterInput> = ({ counterName, getCount, value }) => {
     setItemsCount(value)
   }, [value])
 
-
-
   return (
     <Stack direction="row" bgcolor="#fff" alignItems="center" justifyContent="space-between" p="4px 6px">
       <Typography variant="h5" fontWeight="600">{counterName}</Typography>
