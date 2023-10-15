@@ -14,12 +14,14 @@ const ItemContainer = styled(Stack)({
   flexDirection: "column",
   rowGap: "2em",
   padding: "10px 0px 24px 0px",
-  position: "relative"
+  position: "relative",
+  minHeight: "350px"
 })
 
 const ItemsStack = styled(Stack)({
   flexDirection: "row",
-  columnGap: "10px"
+  columnGap: "10px",
+  minHeight: "80px"
 })
 
 /**
@@ -68,7 +70,7 @@ const MachineItems = () => {
       </ItemsStack>
 
       <SlabContainer src={slab} sx={{
-        top: "5.2rem",
+        top: "5.5rem",
       }} />
       <SlabContainer src={slab} sx={{
         bottom: "9.8rem",

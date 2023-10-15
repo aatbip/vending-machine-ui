@@ -1,5 +1,5 @@
 import { FC, ReactNode, createContext, useState } from "react";
-import { ICoreContext, IInitialState, IUserInput } from "../types/interfaces";
+import { ICoreContext, IInitialState, IUserInput, IUserRefundInput } from "../types/interfaces";
 import { url } from "../axios/axios";
 
 export const CoreContext = createContext<ICoreContext | null>(null)
@@ -14,7 +14,9 @@ export const CoreProvider: FC<ICoreProvider> = ({ children }) => {
     appState: undefined,
     errorMsg: "",
     isLoading: false,
-    change: 0
+    change: 0,
+    refund: 0,
+    isRefundOn: false
   })
 
   const fetchAppState = async () => {
@@ -42,10 +44,44 @@ export const CoreProvider: FC<ICoreProvider> = ({ children }) => {
     }
   }
 
+  const refund = async (data: IUserRefundInput) => {
+    try {
+      const res = await url.post('core/refund', {
+        coke_count: data.coke_count,
+        pepsi_count: data.pepsi_count,
+        dew_count: data.dew_count,
+      })
+      setState(prev => ({ ...prev, appState: res.data.updatedState, refund: res.data.refund }))
+    } catch (e: any) {
+      setState(prev => ({ ...prev, isLoading: false, errorMsg: e.response.data.message }))
+    }
+  }
+
+  const resetChange = () => {
+    setState(prev => ({ ...prev, change: 0 }))
+  }
+
+  const resetRefund = () => {
+    setState(prev => ({ ...prev, refund: 0 }))
+  }
+
+  const resetError = () => {
+    setState(prev => ({ ...prev, errorMsg: "" }))
+  }
+
+  const toggleRefund = () => {
+    setState(prev => ({ ...prev, isRefundOn: !state.isRefundOn }))
+  }
+
   return <CoreContext.Provider value={{
     state,
     fetchAppState,
-    purchase
+    purchase,
+    refund,
+    resetChange,
+    resetRefund,
+    resetError,
+    toggleRefund
   }}> {children}
   </CoreContext.Provider>
 }

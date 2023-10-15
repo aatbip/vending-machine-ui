@@ -62,7 +62,8 @@ const VendingMachine = () => {
         <Stack direction="column" flexBasis="30%" p="1.5em" width="100%">
 
           <DisplayBox
-            message="Please add items and input cash/coin to purchase!"
+            message={state.errorMsg ? state.errorMsg : "Please add items and input cash/coin to purchase!"}
+            isErrorMsg={state.errorMsg !== ""}
           />
 
           <UserInteractionElements />

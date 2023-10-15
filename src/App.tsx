@@ -10,6 +10,15 @@ function App() {
     state.fetchAppState()
   }, [])
 
+  useEffect(() => {
+    if (state.state.errorMsg) {
+      let t = setTimeout(() => {
+        state.resetError()
+      }, 8000)
+      return () => clearTimeout(t)
+    }
+  }, [state.state.errorMsg])
+
   return (
     <>
       <VendingMachine />

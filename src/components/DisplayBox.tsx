@@ -3,9 +3,10 @@ import { FC } from "react";
 
 interface IDisplayBox {
   message: string;
+  isErrorMsg: boolean;
 }
 
-const DisplayBox: FC<IDisplayBox> = ({ message }) => {
+const DisplayBox: FC<IDisplayBox> = ({ message, isErrorMsg }) => {
   return (
     <Box sx={{
       border: "3px solid #fff",
@@ -14,7 +15,22 @@ const DisplayBox: FC<IDisplayBox> = ({ message }) => {
       width: "190px",
       textAlign: "center",
       marginBottom: "10px",
-      overflowY: "auto"
+      overflowY: "auto",
+      animation: isErrorMsg ? "change-color 2s ease infinite" : "",
+      "@keyframes change-color": {
+        "0%": {
+          borderColor: "#123493",
+          transform: "scale(1,1)",
+        },
+        "50%": {
+          borderColor: "#fff",
+          transform: "scale(1.1, 1.1)"
+        },
+        "100%": {
+          borderColor: "#123493",
+          transform: "scale(1,1)"
+        }
+      }
     }}>
       <Typography variant="caption" sx={{
         color: "#fff",
@@ -24,7 +40,7 @@ const DisplayBox: FC<IDisplayBox> = ({ message }) => {
       <Typography variant="body2" sx={{
         color: "#fff",
         overflowWrap: "break-word",
-        whiteSpace: "pre-wrap"
+        whiteSpace: "pre-wrap",
       }}>{message}</Typography>
     </Box>
   )
