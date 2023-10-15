@@ -58,6 +58,7 @@ const UserInteractionElements = () => {
         </Stack>
         <BasicButton label="PURCHASE"
           handleButtonClick={() => {
+            if (userInputs.coke_count === 0 && userInputs.pepsi_count === 0 && userInputs.dew_count === 0) return;
             state.purchase(userInputs)
             clearUserInputs()
           }}

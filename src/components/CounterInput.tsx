@@ -12,8 +12,6 @@ const CounterInput: FC<ICounterInput> = ({ counterName, getCount, value }) => {
 
   const [itemsCount, setItemsCount] = useState(value);
 
-  console.log(counterName, value, itemsCount)
-
   const addItems = () => {
     setItemsCount(prev => prev + 1)
   }
@@ -35,14 +33,20 @@ const CounterInput: FC<ICounterInput> = ({ counterName, getCount, value }) => {
   }, [value])
 
   return (
-    <Stack direction="row" bgcolor="#fff" alignItems="center" justifyContent="space-between" p="4px 6px">
-      <Typography variant="h5" fontWeight="600">{counterName}</Typography>
-      <Stack direction="row" alignItems="center" columnGap="1.2rem">
+    <Stack
+      direction="row"
+      bgcolor="#fff"
+      alignItems="center"
+      justifyContent="space-between"
+      p="4px 6px"
+    >
+      <Typography variant="h5" fontWeight="600" >{counterName}</Typography>
+      <Stack direction="row" alignItems="center" columnGap="0.5rem">
         <RemoveCircleOutline onClick={subtractItems} sx={{ cursor: "pointer" }} />
         <Typography variant="h4">{value}</Typography>
         <AddCircleOutline onClick={addItems} sx={{ cursor: "pointer" }} />
       </Stack>
-    </Stack>
+    </Stack >
   )
 }
 
