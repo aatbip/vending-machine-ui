@@ -2,6 +2,7 @@ import { Box, Stack, styled } from "@mui/material";
 import MachineItems from "./MachineItems";
 import CounterInput from "../components/CounterInput";
 import BasicInput from "../components/BasicInput";
+import BasicButton from "../components/BasicButton";
 
 const MachineContainer = styled(Stack)
   ({
@@ -63,6 +64,8 @@ const VendingMachine = () => {
           <BasicInput label="CASH" getInput={(cash) => {
             console.log(cash)
           }} />
+
+          <BasicButton label="PURCHASE" handleButtonClick={() => { }} />
         </Stack>
 
       </MachineContainer>
