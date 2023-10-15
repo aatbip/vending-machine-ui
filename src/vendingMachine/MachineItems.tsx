@@ -3,7 +3,9 @@ import coke from "../assets/coke.svg";
 import pepsi from "../assets/pepsi.svg";
 import dew from "../assets/dew.svg";
 import slab from "../assets/slab.png";
-import { MAX_CAPACITY } from "../constants";
+import { useContext } from "react";
+import { CoreContext } from "../context";
+import { ICoreContext } from "../types/interfaces";
 
 const ItemContainer = styled(Stack)({
   backgroundImage: "url('bg.png')",
@@ -29,12 +31,15 @@ const SlabContainer = styled('img')({
 })
 
 const MachineItems = () => {
+
+  const { state } = useContext(CoreContext) as ICoreContext
+
   return (
     <ItemContainer>
 
       <ItemsStack>
         {
-          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
+          Array.from({ length: state.appState?.coke_count as number }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={coke} key={el} width="35px" />
             )
@@ -44,7 +49,7 @@ const MachineItems = () => {
 
       <ItemsStack>
         {
-          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
+          Array.from({ length: state.appState?.pepsi_count as number }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={pepsi} key={el} width="35px" />
             )
@@ -54,7 +59,7 @@ const MachineItems = () => {
 
       <ItemsStack>
         {
-          Array.from({ length: MAX_CAPACITY }, (_, index) => index + Math.random()).map(el => {
+          Array.from({ length: state.appState?.dew_count as number }, (_, index) => index + Math.random()).map(el => {
             return (
               <img src={dew} key={el} width="35px" />
             )

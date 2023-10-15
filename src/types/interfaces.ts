@@ -6,13 +6,18 @@ export type IAppState = {
   cash_count: number;
 }
 
+export interface IUserInput extends IAppState { }
+
 export interface IInitialState {
   appState: IAppState | undefined;
   errorMsg: string;
   isLoading: boolean;
+  change: number;
 }
 
 export type ICoreContext = {
   state: IInitialState;
   fetchAppState: () => void;
+  purchase: (data: IUserInput) => void;
 }
+

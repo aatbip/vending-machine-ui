@@ -41,7 +41,7 @@ const VendingMachine = () => {
         <Stack direction="column" flexBasis="70%" p="1.5em">
           <AmountDisplayContainer>
             <Typography variant="h4" fontWeight="600">Cash : <span>{state.appState?.cash_count}</span></Typography>
-            <Typography variant="h4" fontWeight="600">Coin : <span>{state.appState?.cash_count}</span></Typography>
+            <Typography variant="h4" fontWeight="600">Coin : <span>{state.appState?.coins_count}</span></Typography>
           </AmountDisplayContainer>
 
           <MachineItems />
