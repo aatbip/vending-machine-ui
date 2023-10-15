@@ -31,7 +31,7 @@ const CounterInput: FC<ICounterInput> = ({ counterName, getCount }) => {
 
 
   return (
-    <Stack direction="row" bgcolor="#fff" columnGap="1.5rem" alignItems="center" justifyContent="center">
+    <Stack direction="row" bgcolor="#fff" alignItems="center" justifyContent="space-between" p="4px 6px">
       <Typography variant="h5" fontWeight="600">{counterName}</Typography>
       <Stack direction="row" alignItems="center" columnGap="1.2rem">
         <RemoveCircleOutline onClick={subtractItems} sx={{ cursor: "pointer" }} />

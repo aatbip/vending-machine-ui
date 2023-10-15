@@ -1,16 +1,15 @@
 import { Box, Stack, styled } from "@mui/material";
 import MachineItems from "./MachineItems";
-import CounterInput from "../components/CounterInput";
+import UserInteractionElements from "./UserInteractionElements";
+import DisplayBox from "../components/DisplayBox";
 
 const MachineContainer = styled(Stack)
   ({
     background: "#9D1717",
     borderRadius: "16px 16px 0px 0px",
-    width: "70%",
     margin: "3rem auto",
-    maxWidth: "900px",
-    minWidth: "600px",
-    flexDirection: "row"
+    width: "800px",
+    flexDirection: "row",
   })
 
 const AmountDisplayContainer = styled(Stack)({
@@ -54,10 +53,14 @@ const VendingMachine = () => {
           </CollectItemBoxContainer>
         </Stack>
 
-        <Stack direction="column" flexBasis="30%">
-          <CounterInput counterName="COKE" getCount={(count) => {
-            console.log(count)
-          }} />
+        <Stack direction="column" flexBasis="30%" p="1.5em" width="100%">
+
+          <DisplayBox
+            message="Please add items and input cash/coin to purchase!"
+          />
+
+          <UserInteractionElements />
+
         </Stack>
 
       </MachineContainer>
