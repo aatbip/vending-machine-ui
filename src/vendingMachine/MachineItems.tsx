@@ -1,4 +1,4 @@
-import { Box, Stack, styled } from "@mui/material"
+import { Stack, styled } from "@mui/material"
 import coke from "../assets/coke.svg";
 import pepsi from "../assets/pepsi.svg";
 import dew from "../assets/dew.svg";
