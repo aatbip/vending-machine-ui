@@ -13,6 +13,7 @@ const MachineContainer = styled(Stack)
     margin: "3rem auto",
     width: "800px",
     flexDirection: "row",
+    height: "650px"
   })
 
 const AmountDisplayContainer = styled(Stack)({
