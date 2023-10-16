@@ -96,7 +96,7 @@ const UserInteractionElements = () => {
 
       <When condition={state.state.refund === 0 && state.state.change === 0}>
         <Stack direction="column" rowGap="10px" mt="1.6em">
-          <Typography variant="body2" textAlign="center" sx={{ color: "#fff" }}>Want to Refund?</Typography>
+          <Typography variant="body2" textAlign="center" sx={{ color: "#fff" }}>{state.state.isRefundOn ? 'Want to Purchase?' : 'Want to Refund?'} </Typography>
           <BasicButton label={state.state.isRefundOn ? "BACK TO PURCHASE" : "REFUND"} handleButtonClick={() => state.toggleRefund()} />
         </Stack>
       </When>

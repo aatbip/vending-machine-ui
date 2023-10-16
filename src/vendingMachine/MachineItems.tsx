@@ -1,4 +1,4 @@
-import { Stack, styled } from "@mui/material"
+import { Box, Stack, styled } from "@mui/material"
 import coke from "../assets/coke.svg";
 import pepsi from "../assets/pepsi.svg";
 import dew from "../assets/dew.svg";
@@ -10,18 +10,17 @@ import { ICoreContext } from "../types/interfaces";
 const ItemContainer = styled(Stack)({
   backgroundImage: "url('bg.png')",
   border: "10px solid #fff",
-  margin: "1.5em 0em",
+  margin: "1em 0em",
   flexDirection: "column",
   rowGap: "2em",
   padding: "10px 0px 24px 0px",
   position: "relative",
-  minHeight: "350px"
 })
 
 const ItemsStack = styled(Stack)({
   flexDirection: "row",
   columnGap: "10px",
-  minHeight: "80px"
+  height: "90px"
 })
 
 /**
@@ -30,6 +29,14 @@ const ItemsStack = styled(Stack)({
 const SlabContainer = styled('img')({
   position: "absolute",
   width: "28rem"
+})
+
+const CostSticker = styled(Stack)({
+  background: "#d62b2b",
+  padding: "0px 12px 0px 12px",
+  position: "absolute",
+  color: "#fff",
+  fontSize: "20px"
 })
 
 const MachineItems = () => {
@@ -70,14 +77,29 @@ const MachineItems = () => {
       </ItemsStack>
 
       <SlabContainer src={slab} sx={{
-        top: "5.5rem",
+        top: "5.8em",
       }} />
       <SlabContainer src={slab} sx={{
-        bottom: "9.8rem",
+        bottom: "8rem",
       }} />
       <SlabContainer src={slab} sx={{
+        bottom: "0.1rem",
+      }} />
+
+      <CostSticker sx={{
+        top: "5em",
+        left: "40%"
+      }}>Coke Rs. 20</CostSticker>
+
+      <CostSticker sx={{
+        bottom: "6.5em",
+        left: "40%"
+      }}>Pepsi Rs. 25</CostSticker>
+
+      <CostSticker sx={{
         bottom: 0,
-      }} />
+        left: "40%"
+      }}>Dew Rs. 30</CostSticker>
 
     </ItemContainer>
   )
