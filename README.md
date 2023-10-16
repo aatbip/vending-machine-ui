@@ -1,27 +1,33 @@
-# React + TypeScript + Vite
+# Vending Machine UI App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### How to run the project?
 
-Currently, two official plugins are available:
+To run the project, follow the steps below:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Clone this repository
+- Go to the root of the project then run the command `yarn` to install packages
+- Then, run `yarn run dev` command to start to development server
 
-## Expanding the ESLint configuration
+To run the project using docker, follow the steps below:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- In the project's root directory, run `docker build -t vending-machine-ui .`
+- Then start the app using `docker run -p 8080:8080 vending-machine-ui`
 
-- Configure the top-level `parserOptions` property like this:
+### Project's structure
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+This application follows the following structure:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- `src/vendingMachine` folder contains the core machine logic. It has root `index.tsx` file that contains the layout of the machine. 
+- Layout is further divided in two parts. 
+
+   - `MachineItems.tsx` contains the `MachineItems` component that is responsible for rendering the current number of items (Coke, Pepsi, and Dew) inside the machine. 
+   - `UserInteractionElements.tsx` contains `UserInteractionElements` component that is responsible for taking all kinds of user inputs including coins, cash, and item counts.
+- `components` folder contains all the reusable components.
+- Application state has been defined under the `context` folder which is passed throughout the application using the ContextAPI.
+- `hoc` folder contains a simple `<When/>` HOC that is used for conditional rendering
+
+### Procedure
+
+- When the app is first rendered, `fetchAppState()` function is called which is responsible for fetching the current states (coin/cash counts, items count)
+- `purchase()` and `refund()` functions are implemented in the `/context/index.tsx` file that are responsible for requesting the backend server to handle purchase and refund logics.
+- Other states such as `errorMsg`, `change`, `refund`, `isRefundOn` are defined in the context to manage the overall application logic.
