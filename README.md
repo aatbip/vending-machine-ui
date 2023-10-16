@@ -1,5 +1,7 @@
 # Vending Machine UI App
 
+API of this application can be found [here](https://github.com/aatbip/vending-machine-server#application-state).
+
 ### How to run the project?
 
 To run the project, follow the steps below:
